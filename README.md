@@ -11,6 +11,7 @@ originally from OpenAI. The model is released as a part of [Whisper fine-tuning 
 
 ## Usage
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/biodatlab/whisper-th-demo/blob/main/whisper_th_demo.ipynb)
+
 Use the model with [Huggingface's transformers](https://github.com/huggingface/transformers) as follows:
 
 ```py
