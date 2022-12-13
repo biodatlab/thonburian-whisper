@@ -1,11 +1,13 @@
 # Thonburian Whisper
 
-[Model](https://huggingface.co/biodatlab/whisper-th-medium-combined) | [Notebook](https://github.com/biodatlab/whisper-th-demo/blob/main/whisper_th_demo.ipynb) | [Hugginface Space](https://huggingface.co/spaces/biodatlab/whisper-thai-demo) | Blog (TBA)
+[🤖 Model](https://huggingface.co/biodatlab/whisper-th-medium-combined) | [📔 Notebook](https://github.com/biodatlab/whisper-th-demo/blob/main/whisper_th_demo.ipynb) | [🤗 Hugginface Space](https://huggingface.co/spaces/biodatlab/whisper-thai-demo) | 📃 Blog in Thai (TBA)
 
-<img src="assets/Thonburian-Whisper-1.jpg" width="500"/>
+<center>
+  <img src="assets/Thonburian-Whisper-1.jpg" width="700"/>
+<center/>
 
 Thonburian Whisper is an Automatic Speech Recognition (ASR) in Thai fine-tuned using [Whisper](https://openai.com/blog/whisper/) model
-originally from OpenAI.
+originally from OpenAI. The model is releases as a part of [Whisper fine-tuning event](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event) from Huggingface (December 2022).
 
 ## Usage
 
@@ -28,6 +30,7 @@ pipe = pipeline(
 )
 
 pipe.model.config.forced_decoder_ids = pipe.tokenizer.get_decoder_prompt_ids(language=lang, task="transcribe")
+pipe("audio.mp3", ignore_warning = True)["text"] # perform ASR with created pipe
 ```
 
 ## Requirements
@@ -39,3 +42,8 @@ Use `pip` to install the requirements as follows:
 !pip install librosa
 !sudo apt install ffmpeg
 ```
+
+## Developers
+
+- [Biomedical and Data Lab, Mahidol University](https://biodatlab.github.io/)
+- [Looloo technology](https://loolootech.com/)
