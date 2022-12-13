@@ -49,10 +49,16 @@ Use `pip` to install the requirements as follows:
 
 We measure word error rate (WER) of the model with [deepcut tokenizer](https://github.com/rkcosmos/deepcut) after punctuation removal and replaing maiyamok (ๆ) with the preceding word.
 
-| **Model**        | **Commonvoice 7** | **Commonvoice 11** |
-|------------------|-------------------|--------------------|
-| Whisper (medium) | 8.49              | 9.17               |
+| **Model**            | **WER (Commonvoice 11)** |
+|----------------------|--------------------------|
+| Whisper CV11 (medium)     |  -                  |
+| Whisper combined (medium) |  **9.17**           |
 
+_CV11_ means the model is trained on Commonvoice 11 dataset only. _Combined_ means Whisper is fine-tuned with combined dataset.
+The splitting is based on original splitting from [`datasets`](https://huggingface.co/docs/datasets/index).
+
+**Inference time** We tested inference on 1000 files with average time per file of 5 seconds.
+[Wav2vec-XLSR](https://huggingface.co/airesearch/wav2vec2-large-xlsr-53-th) takes ~ 0.054 sec/file and Whisper (medium) takes ~ 1. sec/file.
 
 ## Developers
 
