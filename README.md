@@ -1,13 +1,13 @@
 # Thonburian Whisper
 
-[🤖 Model](https://huggingface.co/biodatlab/whisper-th-medium-combined) | [📔 Notebook](https://github.com/biodatlab/whisper-th-demo/blob/main/whisper_th_demo.ipynb) | [🤗 Hugginface Space](https://huggingface.co/spaces/biodatlab/whisper-thai-demo) | 📃 Blog in Thai (TBA)
+[🤖 Model](https://huggingface.co/biodatlab/whisper-th-medium-combined) | [📔 Jupyter Notebook](https://github.com/biodatlab/whisper-th-demo/blob/main/whisper_th_demo.ipynb) | [🤗 Hugginface Space Demo](https://huggingface.co/spaces/biodatlab/whisper-thai-demo) | 📃 Blog in Thai (TBA)
 
-<center>
+<p align="center">
   <img src="assets/Thonburian-Whisper-1.jpg" width="700"/>
-<center/>
+</p>
 
 Thonburian Whisper is an Automatic Speech Recognition (ASR) in Thai fine-tuned using [Whisper](https://openai.com/blog/whisper/) model
-originally from OpenAI. The model is released as a part of [Whisper fine-tuning event](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event) from Huggingface (December 2022).
+originally from OpenAI. The model is released as a part of [Whisper fine-tuning event](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event) from Huggingface (December 2022). We trained the model using Commonvoice 11, [Gowajee corpus](https://github.com/ekapolc/gowajee_corpus), and [Thai Elderly Speech dataset](https://github.com/VISAI-DATAWOW/Thai-Elderly-Speech-dataset/releases/tag/v1.0.0).
 
 ## Usage
 
@@ -42,6 +42,15 @@ Use `pip` to install the requirements as follows:
 !pip install librosa
 !sudo apt install ffmpeg
 ```
+
+## Model performance
+
+We measure word error rate (WER) of the model with [deepcut tokenizer](https://github.com/rkcosmos/deepcut) after punctuation removal and replaing maiyamok (ๆ) with the prior word.
+
+| **Model**        | **Commonvoice 7** | **Commonvoice 11** |
+|------------------|-------------------|--------------------|
+| Whisper (medium) | 8.49              | 9.17               |
+
 
 ## Developers
 
