@@ -61,7 +61,7 @@ The splitting is based on original splitting from [`datasets`](https://huggingfa
 
 **Inference time**
 We tested inference on 1000 files with average duration per file of 5 seconds.
-[Wav2vec-XLSR](https://huggingface.co/airesearch/wav2vec2-large-xlsr-53-th) takes ~ 0.054 sec/file and Whisper (medium) takes ~ 1. sec/file.
+[Wav2vec-XLSR](https://huggingface.co/airesearch/wav2vec2-large-xlsr-53-th) takes ~ 0.054 sec/file and Whisper (medium) takes ~ 1.8 sec/file.
 
 ## Developers
 
