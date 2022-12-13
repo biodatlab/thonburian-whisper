@@ -45,7 +45,7 @@ Use `pip` to install the requirements as follows:
 
 ## Model performance
 
-We measure word error rate (WER) of the model with [deepcut tokenizer](https://github.com/rkcosmos/deepcut) after punctuation removal and replaing maiyamok (ๆ) with the prior word.
+We measure word error rate (WER) of the model with [deepcut tokenizer](https://github.com/rkcosmos/deepcut) after punctuation removal and replaing maiyamok (ๆ) with the preceding word.
 
 | **Model**        | **Commonvoice 7** | **Commonvoice 11** |
 |------------------|-------------------|--------------------|
