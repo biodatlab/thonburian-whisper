@@ -7,7 +7,7 @@
 </p>
 
 Thonburian Whisper is an Automatic Speech Recognition (ASR) in Thai fine-tuned using [Whisper](https://openai.com/blog/whisper/) model
-originally from OpenAI. The model is released as a part of [Whisper fine-tuning event](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event) from Huggingface (December 2022). We trained the model using Commonvoice 11, [Gowajee corpus](https://github.com/ekapolc/gowajee_corpus), and [Thai Elderly Speech dataset](https://github.com/VISAI-DATAWOW/Thai-Elderly-Speech-dataset/releases/tag/v1.0.0).
+originally from OpenAI. The model is released as a part of [Whisper fine-tuning event](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event) from Huggingface (December 2022). We trained the model using [Commonvoice](https://commonvoice.mozilla.org/th) 11, [Gowajee corpus](https://github.com/ekapolc/gowajee_corpus), and [Thai Elderly Speech dataset](https://github.com/VISAI-DATAWOW/Thai-Elderly-Speech-dataset/releases/tag/v1.0.0).
 
 ## Usage
 
@@ -29,8 +29,10 @@ pipe = pipeline(
     device=device,
 )
 
-pipe.model.config.forced_decoder_ids = pipe.tokenizer.get_decoder_prompt_ids(language=lang, task="transcribe")
-pipe("audio.mp3", ignore_warning = True)["text"] # perform ASR with created pipe
+pipe.model.config.forced_decoder_ids = pipe.tokenizer.get_decoder_prompt_ids(
+    language=lang, task="transcribe"
+)
+pipe("audio.mp3", ignore_warning=True)["text"] # perform ASR with created pipe
 ```
 
 ## Requirements
