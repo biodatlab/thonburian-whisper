@@ -67,3 +67,18 @@ We tested inference on 1000 files with average duration per file of 5 seconds.
 
 - [Biomedical and Data Lab, Mahidol University](https://biodatlab.github.io/)
 - [Looloo technology](https://loolootech.com/)
+
+## Citation
+
+If you use the model, you can cite it with the following bibtex.
+
+```
+@misc {thonburian_whisper_med,
+    author       = { Atirut Boribalburephan, Zaw Htet Aung, Knot Pipatsrisawat, Titipat Achakulvisut },
+    title        = { whisper-th-medium-combined (Revision c98d215) },
+    year         = 2022,
+    url          = { https://huggingface.co/biodatlab/whisper-th-medium-combined },
+    doi          = { 10.57967/hf/0226 },
+    publisher    = { Hugging Face }
+}
+```
