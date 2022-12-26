@@ -54,7 +54,7 @@ We measure word error rate (WER) of the model with [deepcut tokenizer](https://g
 | **Model**            | **WER (Commonvoice 11)** |
 |----------------------|--------------------------|
 | Whisper CMV11 (medium)    |  9.50               |
-| Whisper combined (medium) |  **9.17**           |
+| Whisper combined (medium) |  **8.44**           |
 
 _CV11_ means the model is trained on Commonvoice 11 dataset only. _Combined_ means Whisper is fine-tuned with the combined dataset.
 The splitting is based on original splitting from [`datasets`](https://huggingface.co/docs/datasets/index).
