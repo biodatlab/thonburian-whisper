@@ -10,6 +10,7 @@ Thonburian Whisper is an Automatic Speech Recognition (ASR) model for Thai, fine
 originally from OpenAI. The model is released as a part of [Whisper fine-tuning event](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event) from Huggingface (December 2022). We trained the model using [Commonvoice](https://commonvoice.mozilla.org/th) 11, [Gowajee corpus](https://github.com/ekapolc/gowajee_corpus), and [Thai Elderly Speech dataset](https://github.com/VISAI-DATAWOW/Thai-Elderly-Speech-dataset/releases/tag/v1.0.0) datasets.
 
 ## Usage
+
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/biodatlab/whisper-th-demo/blob/main/whisper_th_demo.ipynb)
 
 Use the model with [Huggingface's transformers](https://github.com/huggingface/transformers) as follows:
@@ -34,14 +35,14 @@ pipe.model.config.forced_decoder_ids = pipe.tokenizer.get_decoder_prompt_ids(
     language=lang, task="transcribe"
 )
 # Perform ASR with the created pipe.
-pipe("audio.mp3", ignore_warning=True)["text"] 
+pipe("audio.mp3", generate_kwargs={"language":"<|th|>", "task":"transcribe"}, batch_size=16)["text"]
 ```
 
 ## Requirements
 
 Use `pip` to install the requirements as follows:
 
-``` sh
+```sh
 !pip install git+https://github.com/huggingface/transformers
 !pip install librosa
 !sudo apt install ffmpeg
@@ -51,10 +52,10 @@ Use `pip` to install the requirements as follows:
 
 We measure word error rate (WER) of the model with [deepcut tokenizer](https://github.com/rkcosmos/deepcut) after punctuation removal.
 
-| **Model**            | **WER (Commonvoice 11)** |
-|----------------------|--------------------------|
-| Whisper CMV11 (medium)    |  9.50               |
-| Whisper combined (medium) |  **8.44**           |
+| **Model**                 | **WER (Commonvoice 11)** |
+| ------------------------- | ------------------------ |
+| Whisper CMV11 (medium)    | 9.50                     |
+| Whisper combined (medium) | **8.44**                 |
 
 _CV11_ means the model is trained on Commonvoice 11 dataset only. _Combined_ means Whisper is fine-tuned with the combined dataset.
 The splitting is based on original splitting from [`datasets`](https://huggingface.co/docs/datasets/index).
