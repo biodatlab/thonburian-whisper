@@ -31,9 +31,6 @@ pipe = pipeline(
     device=device,
 )
 
-pipe.model.config.forced_decoder_ids = pipe.tokenizer.get_decoder_prompt_ids(
-    language=lang, task="transcribe"
-)
 # Perform ASR with the created pipe.
 pipe("audio.mp3", generate_kwargs={"language":"<|th|>", "task":"transcribe"}, batch_size=16)["text"]
 ```
