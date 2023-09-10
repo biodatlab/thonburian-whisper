@@ -5,7 +5,8 @@
 [🤖 Model](https://huggingface.co/biodatlab/whisper-th-medium-combined) | [📔 Jupyter Notebook](https://github.com/biodatlab/thonburian-whisper/blob/main/thonburian_whisper_notebook.ipynb) | [🤗 Huggingface Space Demo](https://huggingface.co/spaces/biodatlab/whisper-thai-demo) | [📃 Medium Blog (Thai)](https://medium.com/@Loolootech/thonburian-whisper-asr-27c067c534cb)
 
 **Thonburian Whisper** is an Automatic Speech Recognition (ASR) model for Thai, fine-tuned using [Whisper](https://openai.com/blog/whisper/) model
-originally from OpenAI. The model is released as a part of [Whisper fine-tuning event](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event) from Huggingface (December 2022). We trained the model using [Commonvoice](https://commonvoice.mozilla.org/th) 11, [Gowajee corpus](https://github.com/ekapolc/gowajee_corpus), and [Thai Elderly Speech dataset](https://github.com/VISAI-DATAWOW/Thai-Elderly-Speech-dataset/releases/tag/v1.0.0) datasets.
+originally from OpenAI. The model is released as a part of Huggingface's [Whisper fine-tuning event](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event)  (December 2022). We trained the model using [Commonvoice](https://commonvoice.mozilla.org/th) 13, [Gowajee corpus](https://github.com/ekapolc/gowajee_corpus), and [Thai Elderly Speech dataset](https://github.com/VISAI-DATAWOW/Thai-Elderly-Speech-dataset/releases/tag/v1.0.0) datasets. Our model demonstrates robustness under environmental noise and fine-tuned abilities to
+domain-specific audio such as financial and medical domains.
 
 ## Usage
 
@@ -45,19 +46,34 @@ Use `pip` to install the requirements as follows:
 
 ## Model performance
 
-We measure word error rate (WER) of the model with [deepcut tokenizer](https://github.com/rkcosmos/deepcut) after punctuation removal.
+We measure word error rate (WER) of the model with [deepcut tokenizer](https://github.com/rkcosmos/deepcut) after
+normalizing special tokens (▁ to _ and — to -) and simple text-postprocessing (เเ to แ and  ํา to  ำ).
 
-| **Model**                 | **WER (Commonvoice 11)** |
-| ------------------------- | ------------------------ |
-| Whisper CMV11 (medium)    | 9.50                     |
-| Whisper combined (medium) | **8.44**                 |
+| **Model**                         | **WER (Commonvoice 11)** |
+| --------------------------------- | ------------------------ |
+| Thonburian Whisper CMV11 (medium) | 9.50                     |
+| Thonburian Whisper (medium)       | **8.44**                 |
 
 _CV11_ means the model is trained on Commonvoice 11 dataset only. _Combined_ means Whisper is fine-tuned with the combined dataset.
 The splitting is based on original splitting from [`datasets`](https://huggingface.co/docs/datasets/index).
 
 **Inference time**
-We tested inference on 1000 files with average duration per file of 5 seconds.
-[Wav2vec-XLSR](https://huggingface.co/airesearch/wav2vec2-large-xlsr-53-th) takes ~ 0.054 sec/file and Whisper (medium) takes ~ 1.8 sec/file.
+
+We have performed benchmark average inference speed on 1 minute audio with different model sizes (small, medium, and large)
+on NVIDIA A100 with 32 fp, batch size of 32. The medium model presents a balanced trade-off between WER and computational costs.
+
+| **Model**                   | **Memory usage (Mb)**    | **Inference time (sec / 1 min)** |
+| --------------------------- | ------------------------ | -------------------------------- |
+| Thonburian Whisper (small)  | 7,194                    | 4.83                             |
+| Thonburian Whisper (medium) | 10,878                   | 7.11                             |
+| Thonburian Whisper (large)  | 18.246                   | 9.61                             |
+
+
+## Long-form Inference
+
+Thonburian Whisper can be used for long-form audio transcription by combining VAD, Thai-word tokenizer, and chunking for word-level alignment.
+We found that this is more robust and produce less insertion error rate (IER) comparing to using Whisper with timestamp.
+
 
 ## Developers
 
