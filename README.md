@@ -72,7 +72,7 @@ on NVIDIA A100 with 32 fp, batch size of 32. The medium model presents a balance
 ## Long-form Inference
 
 Thonburian Whisper can be used for long-form audio transcription by combining VAD, Thai-word tokenizer, and chunking for word-level alignment.
-We found that this is more robust and produce less insertion error rate (IER) comparing to using Whisper with timestamp.
+We found that this is more robust and produce less insertion error rate (IER) comparing to using Whisper with timestamp. See `README.md` in [longform_transcription](https://github.com/biodatlab/thonburian-whisper/tree/main/longform_transcription) folder for detail usage.
 
 
 ## Developers
