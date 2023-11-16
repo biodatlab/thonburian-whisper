@@ -66,7 +66,7 @@ on NVIDIA A100 with 32 fp, batch size of 32. The medium model presents a balance
 | --------------------------- | ------------------------ | -------------------------------- |
 | Thonburian Whisper (small)  | 7,194                    | 4.83                             |
 | Thonburian Whisper (medium) | 10,878                   | 7.11                             |
-| Thonburian Whisper (large)  | 18.246                   | 9.61                             |
+| Thonburian Whisper (large)  | 18,246                   | 9.61                             |
 
 
 ## Long-form Inference
