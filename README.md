@@ -68,7 +68,7 @@ on NVIDIA A100 with 32 fp, batch size of 32. The medium model presents a balance
 | Thonburian Whisper (medium) [Link](https://huggingface.co/biodatlab/whisper-th-medium-combined) | 10,878                   | 7.11                             | 764M                     |
 | Thonburian Whisper (large) [Link](https://huggingface.co/biodatlab/whisper-th-large-combined)  | 18,246                   | 9.61                             | 1540M                    |
 | Distilled Thonburian Whisper (small) [Link](https://huggingface.co/biodatlab/distill-whisper-th-small) | 4,944            |              TBA                    | 166M                     |
-| Distilled Thonburian Whisper (medium) [Link](https://huggingface.co/biodatlab/distill-whisper-th-medium) | 6,080           |               TBA                   | 428M                     |
+| Distilled Thonburian Whisper (medium) [Link](https://huggingface.co/biodatlab/distill-whisper-th-medium) | 7,084           |               TBA                   | 428M                     |
 
 ## Long-form Inference
 
