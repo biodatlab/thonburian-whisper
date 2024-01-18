@@ -62,12 +62,13 @@ The splitting is based on original splitting from [`datasets`](https://huggingfa
 We have performed benchmark average inference speed on 1 minute audio with different model sizes (small, medium, and large)
 on NVIDIA A100 with 32 fp, batch size of 32. The medium model presents a balanced trade-off between WER and computational costs.
 
-| **Model**                   | **Memory usage (Mb)**    | **Inference time (sec / 1 min)** |
-| --------------------------- | ------------------------ | -------------------------------- |
-| Thonburian Whisper (small)  | 7,194                    | 4.83                             |
-| Thonburian Whisper (medium) | 10,878                   | 7.11                             |
-| Thonburian Whisper (large)  | 18,246                   | 9.61                             |
-
+| **Model**                   | **Memory usage (Mb)**    | **Inference time (sec / 1 min)** | **Number of Parameters** |
+| --------------------------- | ------------------------ | -------------------------------- | ------------------------ |
+| Thonburian Whisper (small) [Link](https://huggingface.co/biodatlab/whisper-th-small-combined)  | 7,194                    | 4.83                             | 242M                     |
+| Thonburian Whisper (medium) [Link](https://huggingface.co/biodatlab/whisper-th-medium-combined) | 10,878                   | 7.11                             | 764M                     |
+| Thonburian Whisper (large) [Link](https://huggingface.co/biodatlab/whisper-th-large-combined)  | 18,246                   | 9.61                             | 1540M                    |
+| Distilled Thonburian Whisper (small) [Link](https://huggingface.co/biodatlab/distill-whisper-th-small) | 4,944            |              TBA                    | 166M                     |
+| Distilled Thonburian Whisper (medium) [Link](https://huggingface.co/biodatlab/distill-whisper-th-medium) | 6,080           |               TBA                   | 428M                     |
 
 ## Long-form Inference
 
