@@ -49,13 +49,16 @@ Use `pip` to install the requirements as follows:
 We measure word error rate (WER) of the model with [deepcut tokenizer](https://github.com/rkcosmos/deepcut) after
 normalizing special tokens (▁ to _ and — to -) and simple text-postprocessing (เเ to แ and  ํา to  ำ).
 
-| **Model**                         | **WER (Commonvoice 11)** |
+| **Model**                         | **WER (Commonvoice 13)** |
 | --------------------------------- | ------------------------ |
-| Thonburian Whisper CMV11 (medium) | 9.50                     |
-| Thonburian Whisper (medium)       | **8.44**                 |
+| Thonburian Whisper (small) [Link](https://huggingface.co/biodatlab/whisper-th-small-combined)      | **13.14**                 |
+| Thonburian Whisper (medium) [Link](https://huggingface.co/biodatlab/whisper-th-medium-combined)       | **7.42**                 |
+| Thonburian Whisper (large-v2) [Link](https://huggingface.co/biodatlab/whisper-th-large-combined)     | **7.69**                 |
+| Thonburian Whisper (large-v3) [Link](https://huggingface.co/biodatlab/whisper-th-large-v3-combined)      | **6.59**                 |
 
-_CV11_ means the model is trained on Commonvoice 11 dataset only. _Combined_ means Whisper is fine-tuned with the combined dataset.
-The splitting is based on original splitting from [`datasets`](https://huggingface.co/docs/datasets/index).
+
+Thonburian Whisper is fine-tuned with a combined dataset of Thai speech including common voice, google fleurs, and curated datasets.
+The common voice test splitting is based on original splitting from [`datasets`](https://huggingface.co/docs/datasets/index).
 
 **Inference time**
 
