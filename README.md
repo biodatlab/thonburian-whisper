@@ -90,7 +90,7 @@ If you use the model, you can cite it with the following bibtex.
 
 ```
 @misc {thonburian_whisper_med,
-    author       = { Atirut Boribalburephan, Zaw Htet Aung, Knot Pipatsrisawat, Titipat Achakulvisut },
+    author       = { Zaw Htet Aung, Thanachot Thavornmongkol, Atirut Boribalburephan, Vittavas Tangsriworakan, Knot Pipatsrisawat, Titipat Achakulvisut },
     title        = { Thonburian Whisper: A fine-tuned Whisper model for Thai automatic speech recognition },
     year         = 2022,
     url          = { https://huggingface.co/biodatlab/whisper-th-medium-combined },
