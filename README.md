@@ -5,8 +5,7 @@
 [🤖 Model](https://huggingface.co/biodatlab/whisper-th-medium-combined) | [📔 Jupyter Notebook](https://github.com/biodatlab/thonburian-whisper/blob/main/thonburian_whisper_notebook.ipynb) | [🤗 Huggingface Space Demo](https://huggingface.co/spaces/biodatlab/whisper-thai-demo) | [📃 Medium Blog (Thai)](https://medium.com/@Loolootech/thonburian-whisper-asr-27c067c534cb)
 
 **Thonburian Whisper** is an Automatic Speech Recognition (ASR) model for Thai, fine-tuned using [Whisper](https://openai.com/blog/whisper/) model
-originally from OpenAI. The model is released as a part of Huggingface's [Whisper fine-tuning event](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event)  (December 2022). We trained the model using [Commonvoice](https://commonvoice.mozilla.org/th) 13, [Gowajee corpus](https://github.com/ekapolc/gowajee_corpus), and [Thai Elderly Speech dataset](https://github.com/VISAI-DATAWOW/Thai-Elderly-Speech-dataset/releases/tag/v1.0.0) datasets. Our model demonstrates robustness under environmental noise and fine-tuned abilities to
-domain-specific audio such as financial and medical domains.
+originally from OpenAI. The model is released as a part of Huggingface's [Whisper fine-tuning event](https://github.com/huggingface/community-events/tree/main/whisper-fine-tuning-event)  (December 2022). We fine-tuned Whisper models for Thai using [Commonvoice](https://commonvoice.mozilla.org/th) 13, [Gowajee corpus](https://github.com/ekapolc/gowajee_corpus), [Thai Elderly Speech](https://github.com/VISAI-DATAWOW/Thai-Elderly-Speech-dataset/releases/tag/v1.0.0), [Thai Dialect](https://github.com/SLSCU/thai-dialect-corpus) datasets. Our models demonstrate robustness under environmental noise and fine-tuned abilities to domain-specific audio such as financial and medical domains. We release models and distilled models on Huggingface model hubs (see below).
 
 ## Usage
 
@@ -18,7 +17,7 @@ Use the model with [Huggingface's transformers](https://github.com/huggingface/t
 import torch
 from transformers import pipeline
 
-MODEL_NAME = "biodatlab/whisper-th-medium-combined"
+MODEL_NAME = "biodatlab/whisper-th-medium-combined"  # see alternative model names below
 lang = "th"
 
 device = 0 if torch.cuda.is_available() else "cpu"
@@ -44,17 +43,17 @@ Use `pip` to install the requirements as follows:
 !sudo apt install ffmpeg
 ```
 
-## Model performance
+## Model checkpoint and performance
 
 We measure word error rate (WER) of the model with [deepcut tokenizer](https://github.com/rkcosmos/deepcut) after
 normalizing special tokens (▁ to _ and — to -) and simple text-postprocessing (เเ to แ and  ํา to  ำ).
 
 | **Model**                         | **WER (Commonvoice 13)** |
 | --------------------------------- | ------------------------ |
-| Thonburian Whisper (small) [Link](https://huggingface.co/biodatlab/whisper-th-small-combined)      | **13.14**                 |
-| Thonburian Whisper (medium) [Link](https://huggingface.co/biodatlab/whisper-th-medium-combined)       | **7.42**                 |
-| Thonburian Whisper (large-v2) [Link](https://huggingface.co/biodatlab/whisper-th-large-combined)     | **7.69**                 |
-| Thonburian Whisper (large-v3) [Link](https://huggingface.co/biodatlab/whisper-th-large-v3-combined)      | **6.59**                 |
+| Thonburian Whisper (small) [Link](https://huggingface.co/biodatlab/whisper-th-small-combined)         | **13.14**           |
+| Thonburian Whisper (medium) [Link](https://huggingface.co/biodatlab/whisper-th-medium-combined)       | **7.42**            |
+| Thonburian Whisper (large-v2) [Link](https://huggingface.co/biodatlab/whisper-th-large-combined)      | **7.69**            |
+| Thonburian Whisper (large-v3) [Link](https://huggingface.co/biodatlab/whisper-th-large-v3-combined)   | **6.59**            |
 
 
 Thonburian Whisper is fine-tuned with a combined dataset of Thai speech including common voice, google fleurs, and curated datasets.
