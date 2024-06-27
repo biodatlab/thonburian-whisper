@@ -1,0 +1,6 @@
+assets/*.json
+assets/*.pt
+assets/*.txt
+tmp
+__pycache__
+model.cache
