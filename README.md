@@ -48,12 +48,12 @@ Use `pip` to install the requirements as follows:
 We measure word error rate (WER) of the model with [deepcut tokenizer](https://github.com/rkcosmos/deepcut) after
 normalizing special tokens (▁ to _ and — to -) and simple text-postprocessing (เเ to แ and  ํา to  ำ).
 
-| **Model**                         | **WER (Commonvoice 13)** |
-| --------------------------------- | ------------------------ |
-| Thonburian Whisper (small) [Link](https://huggingface.co/biodatlab/whisper-th-small-combined)         | **13.14**           |
-| Thonburian Whisper (medium) [Link](https://huggingface.co/biodatlab/whisper-th-medium-combined)       | **7.42**            |
-| Thonburian Whisper (large-v2) [Link](https://huggingface.co/biodatlab/whisper-th-large-combined)      | **7.69**            |
-| Thonburian Whisper (large-v3) [Link](https://huggingface.co/biodatlab/whisper-th-large-v3-combined)   | **6.59**            |
+| Model                    | WER (Commonvoice 13) | Model URL |
+|------------------------------|--------------------------|---------------|
+| Thonburian Whisper (small)   | 13.14     | [Link](https://huggingface.co/biodatlab/whisper-th-small-combined) |
+| Thonburian Whisper (medium)  | 7.42      | [Link](https://huggingface.co/biodatlab/whisper-th-medium-combined) |
+| Thonburian Whisper (large-v2)| 7.69      | [Link](https://huggingface.co/biodatlab/whisper-th-large-combined) |
+| Thonburian Whisper (large-v3)| 6.59      | [Link](https://huggingface.co/biodatlab/whisper-th-large-v3-combined) |
 
 
 Thonburian Whisper is fine-tuned with a combined dataset of Thai speech including common voice, google fleurs, and curated datasets.
@@ -64,13 +64,17 @@ The common voice test splitting is based on original splitting from [`datasets`]
 We have performed benchmark average inference speed on 1 minute audio with different model sizes (small, medium, and large)
 on NVIDIA A100 with 32 fp, batch size of 32. The medium model presents a balanced trade-off between WER and computational costs.
 
-| **Model**                   | **Memory usage (Mb)**    | **Inference time (sec / 1 min)** | **Number of Parameters** |
-| --------------------------- | ------------------------ | -------------------------------- | ------------------------ |
-| Thonburian Whisper (small) [Link](https://huggingface.co/biodatlab/whisper-th-small-combined)  | 7,194                    | 4.83                             | 242M                     |
-| Thonburian Whisper (medium) [Link](https://huggingface.co/biodatlab/whisper-th-medium-combined) | 10,878                   | 7.11                             | 764M                     |
-| Thonburian Whisper (large) [Link](https://huggingface.co/biodatlab/whisper-th-large-combined)  | 18,246                   | 9.61                             | 1540M                    |
-| Distilled Thonburian Whisper (small) [Link](https://huggingface.co/biodatlab/distill-whisper-th-small) | 4,944            |              TBA                    | 166M                     |
-| Distilled Thonburian Whisper (medium) [Link](https://huggingface.co/biodatlab/distill-whisper-th-medium) | 7,084           |               TBA                   | 428M                     |
+Certainly! Here's the modified table with the model URL separated into a new column:
+
+| Model                            | Memory usage (Mb) | Inference time (sec / 1 min) | Number of Parameters | Model URL |
+|----------------------------------|-------------------|------------------------------|----------------------|-----------|
+| Thonburian Whisper (small)           | 7,194       | 4.83                | 242M       | [Link](https://huggingface.co/biodatlab/whisper-th-small-combined) |
+| Thonburian Whisper (medium)          | 10,878      | 7.11                | 764M       | [Link](https://huggingface.co/biodatlab/whisper-th-medium-combined) |
+| Thonburian Whisper (large)           | 18,246      | 9.61                | 1540M      | [Link](https://huggingface.co/biodatlab/whisper-th-large-combined) |
+| Distilled Thonburian Whisper (small) | 4,944       | TBA                 | 166M       | [Link](https://huggingface.co/biodatlab/distill-whisper-th-small) |
+| Distilled Thonburian Whisper (medium)| 7,084       | TBA                 | 428M       | [Link](https://huggingface.co/biodatlab/distill-whisper-th-medium) |
+
+This new table structure separates the model URL into its own column at the end, making it clearer and easier to read. The links are preserved and will still function as clickable URLs in the markdown format.
 
 ## Long-form Inference
 
@@ -81,7 +85,11 @@ We found that this is more robust and produce less insertion error rate (IER) co
 ## Developers
 
 - [Biomedical and Data Lab, Mahidol University](https://biodatlab.github.io/)
-- [Looloo technology](https://loolootech.com/)
+- [WordSense](https://www.facebook.com/WordsenseAI) by [Looloo technology](https://loolootech.com/)
+
+<p align="center">
+  <img width="50px" src="assets/wordsense-looloo.png" />
+</p>
 
 ## Citation
 
