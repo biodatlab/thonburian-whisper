@@ -1,0 +1,8 @@
+torch==2.0.1
+datasets
+transformers
+pydub
+pandas
+attacut
+ssg
+pyarrow==15.0.2
