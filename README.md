@@ -64,8 +64,6 @@ The common voice test splitting is based on original splitting from [`datasets`]
 We have performed benchmark average inference speed on 1 minute audio with different model sizes (small, medium, and large)
 on NVIDIA A100 with 32 fp, batch size of 32. The medium model presents a balanced trade-off between WER and computational costs.
 
-Certainly! Here's the modified table with the model URL separated into a new column:
-
 | Model                            | Memory usage (Mb) | Inference time (sec / 1 min) | Number of Parameters | Model URL |
 |----------------------------------|-------------------|------------------------------|----------------------|-----------|
 | Thonburian Whisper (small)           | 7,194       | 4.83                | 242M       | [Link](https://huggingface.co/biodatlab/whisper-th-small-combined) |
@@ -73,8 +71,6 @@ Certainly! Here's the modified table with the model URL separated into a new col
 | Thonburian Whisper (large)           | 18,246      | 9.61                | 1540M      | [Link](https://huggingface.co/biodatlab/whisper-th-large-combined) |
 | Distilled Thonburian Whisper (small) | 4,944       | TBA                 | 166M       | [Link](https://huggingface.co/biodatlab/distill-whisper-th-small) |
 | Distilled Thonburian Whisper (medium)| 7,084       | TBA                 | 428M       | [Link](https://huggingface.co/biodatlab/distill-whisper-th-medium) |
-
-This new table structure separates the model URL into its own column at the end, making it clearer and easier to read. The links are preserved and will still function as clickable URLs in the markdown format.
 
 ## Long-form Inference
 
