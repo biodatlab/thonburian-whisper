@@ -46,7 +46,7 @@ Use `pip` to install the requirements as follows:
 ## Model checkpoint and performance
 
 We measure word error rate (WER) of the model with [deepcut tokenizer](https://github.com/rkcosmos/deepcut) after
-normalizing special tokens (▁ to _ and — to -) and simple text-postprocessing (เเ to แ and  ํา to  ำ).
+normalizing special tokens (▁ to _ and — to -) and simple text-postprocessing (เเ to แ and  ํา to  ำ). See an example evaluation script [here](https://github.com/biodatlab/thonburian-whisper/blob/main/evalations/evaluate.py).
 
 | Model                    | WER (Commonvoice 13) | Model URL |
 |------------------------------|--------------------------|---------------|
