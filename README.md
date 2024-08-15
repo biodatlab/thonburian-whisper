@@ -85,6 +85,7 @@ We found that this is more robust and produce less insertion error rate (IER) co
 
 <p align="center">
   <img width="50px" src="assets/wordsense-looloo.png" />
+  <img width="150px" src="assets/looloo-logo.png" />
 </p>
 
 ## Citation
