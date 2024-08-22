@@ -2,6 +2,12 @@
   <img src="assets/thonburian-whisper-logo.png" width="400"/>
 </p>
 
+<p align="center">
+  <img width="30px" src="assets/wordsense-looloo.png" />
+  <img width="100px" src="assets/looloo-logo.png" />
+</p>
+
+
 [🤖 Model](https://huggingface.co/biodatlab/whisper-th-medium-combined) | [📔 Jupyter Notebook](https://github.com/biodatlab/thonburian-whisper/blob/main/thonburian_whisper_notebook.ipynb) | [🤗 Huggingface Space Demo](https://huggingface.co/spaces/biodatlab/whisper-thai-demo) | [📃 Medium Blog (Thai)](https://medium.com/@Loolootech/thonburian-whisper-asr-27c067c534cb)
 
 **Thonburian Whisper** is an Automatic Speech Recognition (ASR) model for Thai, fine-tuned using [Whisper](https://openai.com/blog/whisper/) model
