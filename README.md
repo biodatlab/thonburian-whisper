@@ -56,10 +56,13 @@ normalizing special tokens (▁ to _ and — to -) and simple text-postprocessin
 
 | Model                    | WER (Commonvoice 13) | Model URL |
 |------------------------------|--------------------------|---------------|
-| Thonburian Whisper (small)   | 13.14     | [Link](https://huggingface.co/biodatlab/whisper-th-small-combined) |
+| Thonburian Whisper (small)   | 11.0     | [Link](https://huggingface.co/biodatlab/whisper-th-small-combined) |
 | Thonburian Whisper (medium)  | 7.42      | [Link](https://huggingface.co/biodatlab/whisper-th-medium-combined) |
 | Thonburian Whisper (large-v2)| 7.69      | [Link](https://huggingface.co/biodatlab/whisper-th-large-combined) |
 | Thonburian Whisper (large-v3)| 6.59      | [Link](https://huggingface.co/biodatlab/whisper-th-large-v3-combined) |
+| Distilled Thonburian Whisper (small) | 11.2 | [Link](https://huggingface.co/biodatlab/distill-whisper-th-small) |
+| Distilled Thonburian Whisper (medium) | 7.6 | [Link](https://huggingface.co/biodatlab/distill-whisper-th-medium) |
+| Thonburian Whisper (medium-timestamps) | 15.57 | [Link](https://huggingface.co/biodatlab/whisper-th-medium-timestamps) |
 
 
 Thonburian Whisper is fine-tuned with a combined dataset of Thai speech including common voice, google fleurs, and curated datasets.
@@ -68,15 +71,81 @@ The common voice test splitting is based on original splitting from [`datasets`]
 **Inference time**
 
 We have performed benchmark average inference speed on 1 minute audio with different model sizes (small, medium, and large)
-on NVIDIA A100 with 32 fp, batch size of 32. The medium model presents a balanced trade-off between WER and computational costs.
+on NVIDIA A100 with fp32 precision, batch size of 1. The medium model presents a balanced trade-off between WER and computational costs. (Note that the distilled models due to their smaller size and a batch size of 1 are not fully saturating the GPU. With higher batch size, the inference time will be lower substantially.)
 
 | Model                            | Memory usage (Mb) | Inference time (sec / 1 min) | Number of Parameters | Model URL |
 |----------------------------------|-------------------|------------------------------|----------------------|-----------|
-| Thonburian Whisper (small)           | 7,194       | 4.83                | 242M       | [Link](https://huggingface.co/biodatlab/whisper-th-small-combined) |
-| Thonburian Whisper (medium)          | 10,878      | 7.11                | 764M       | [Link](https://huggingface.co/biodatlab/whisper-th-medium-combined) |
-| Thonburian Whisper (large)           | 18,246      | 9.61                | 1540M      | [Link](https://huggingface.co/biodatlab/whisper-th-large-combined) |
-| Distilled Thonburian Whisper (small) | 4,944       | TBA                 | 166M       | [Link](https://huggingface.co/biodatlab/distill-whisper-th-small) |
-| Distilled Thonburian Whisper (medium)| 7,084       | TBA                 | 428M       | [Link](https://huggingface.co/biodatlab/distill-whisper-th-medium) |
+| Thonburian Whisper (small)           | 931.93       | 0.50               | 242M       | [Link](https://huggingface.co/biodatlab/whisper-th-small-combined) |
+| Thonburian Whisper (medium)          | 2923.05      | 0.83                | 764M       | [Link](https://huggingface.co/biodatlab/whisper-th-medium-combined) |
+| Thonburian Whisper (large)           | 6025.84      | 1.89                | 1540M      | [Link](https://huggingface.co/biodatlab/whisper-th-large-combined) |
+| Distilled Thonburian Whisper (small) | 650.27       | 4.42                 | 166M       | [Link](https://huggingface.co/biodatlab/distill-whisper-th-small) |
+| Distilled Thonburian Whisper (medium)| 1642.15       | 4.36                | 428M       | [Link](https://huggingface.co/biodatlab/distill-whisper-th-medium) |
+
+
+## Model Types and Use Cases
+
+### Thonburian Whisper (Standard Models)
+
+These models are fine-tuned versions of OpenAI's Whisper, optimized for Thai ASR:
+
+- **Small**: Balanced performance with lower resource requirements.
+- **Medium**: Best trade-off between accuracy and computational cost.
+- **Large-v2/v3**: Highest accuracy, but more resource-intensive.
+
+Use these for general Thai ASR tasks where timestamps are not required.
+
+### Thonburian Whisper with Timestamps
+
+**Model**: `biodatlab/whisper-th-medium-timestamp`
+
+This model is specifically designed for Thai ASR with timestamp generation. It's based on the Whisper medium architecture and fine-tuned on a custom longform dataset.
+
+**Key Features**:
+- Generates timestamps for transcribed text
+- WER: 15.57 (with Deepcut Tokenizer)
+- Suitable for subtitle creation or audio-text alignment tasks
+
+**Usage**:
+```python
+from transformers import pipeline
+import torch
+MODEL_NAME = "biodatlab/whisper-th-medium-timestamp"
+lang = "th"
+device = 0 if torch.cuda.is_available() else "cpu"
+pipe = pipeline(
+task="automatic-speech-recognition",
+model=MODEL_NAME,
+chunk_length_s=30,
+device=device,
+return_timestamps=True,
+)
+pipe.model.config.forced_decoder_ids = pipe.tokenizer.get_decoder_prompt_ids(
+language=lang,
+task="transcribe"
+)
+result = pipe("audio.mp3", return_timestamps=True)
+text = result["text"]
+timestamps = result["chunks"]
+```
+
+
+**Note**: While this model provides timestamp information, its accuracy may be lower than non-timestamped versions due to several factors.
+
+### Distilled Thonburian Whisper Models
+
+These models are distilled versions of the larger Thonburian Whisper models, offering improved efficiency:
+
+1. **Distilled Medium**:
+   - 4 decoder layers (vs 24 in teacher model)
+   - Distilled from the Medium Whisper ASR model
+
+2. **Distilled Small**:
+   - 4 decoder layers (vs 12 in teacher model)
+   - Distilled from the Small Whisper ASR model
+
+Both distilled models were trained on a combination of Common Voice v13, Gowajee, Thai Elderly Speech Corpus, custom scraped data, and Thai-Central Dialect from SLSCU Thai Dialect Corpus.
+
+Use these models for efficient Thai ASR in resource-constrained environments or for faster inference times.
 
 ## Long-form Inference
 
@@ -108,3 +177,4 @@ If you use the model, you can cite it with the following bibtex.
     publisher    = { Hugging Face }
 }
 ```
+
