@@ -25,9 +25,7 @@ from transformers import pipeline
 
 MODEL_NAME = "biodatlab/whisper-th-medium-combined"  # see alternative model names below
 lang = "th"
-
 device = 0 if torch.cuda.is_available() else "cpu"
-
 pipe = pipeline(
     task="automatic-speech-recognition",
     model=MODEL_NAME,
@@ -106,6 +104,7 @@ This model is specifically designed for Thai ASR with timestamp generation. It's
 - Suitable for subtitle creation or audio-text alignment tasks
 
 **Usage**:
+
 ```python
 from transformers import pipeline
 import torch
@@ -113,21 +112,19 @@ MODEL_NAME = "biodatlab/whisper-th-medium-timestamp"
 lang = "th"
 device = 0 if torch.cuda.is_available() else "cpu"
 pipe = pipeline(
-task="automatic-speech-recognition",
-model=MODEL_NAME,
-chunk_length_s=30,
-device=device,
-return_timestamps=True,
+    task="automatic-speech-recognition",
+    model=MODEL_NAME,
+    chunk_length_s=30,
+    device=device,
+    return_timestamps=True,
 )
 pipe.model.config.forced_decoder_ids = pipe.tokenizer.get_decoder_prompt_ids(
-language=lang,
-task="transcribe"
+    language=lang,
+    task="transcribe"
 )
 result = pipe("audio.mp3", return_timestamps=True)
-text = result["text"]
-timestamps = result["chunks"]
+text, timestamps = result["text"], result["chunks"]
 ```
-
 
 **Note**: While this model provides timestamp information, its accuracy may be lower than non-timestamped versions due to several factors.
 
