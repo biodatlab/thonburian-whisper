@@ -162,16 +162,21 @@ We found that this is more robust and produce less insertion error rate (IER) co
 
 ## Citation
 
-If you use the model, you can cite it with the following bibtex.
+Our work was presented at the 7th ICNLSP 2024. You can find our paper [here](https://aclanthology.org/2024.icnlsp-1.17/). If you find our Thonburian Whisper models useful in your research, please consider citing:
 
 ```
-@misc {thonburian_whisper_med,
-    author       = { Zaw Htet Aung, Thanachot Thavornmongkol, Atirut Boribalburephan, Vittavas Tangsriworakan, Knot Pipatsrisawat, Titipat Achakulvisut },
-    title        = { Thonburian Whisper: A fine-tuned Whisper model for Thai automatic speech recognition },
-    year         = 2022,
-    url          = { https://huggingface.co/biodatlab/whisper-th-medium-combined },
-    doi          = { 10.57967/hf/0226 },
-    publisher    = { Hugging Face }
+@inproceedings{aung-etal-2024-thonburian,
+    title = "Thonburian Whisper: Robust Fine-tuned and Distilled Whisper for {T}hai",
+    author = "Aung, Zaw Htet and Thavornmongkol, Thanachot and Boribalburephan, Atirut and Tangsriworakan, Vittavas and Pipatsrisawat, Knot and Achakulvisut, Titipat",
+    booktitle = "Proceedings of the 7th International Conference on Natural Language and Speech Processing (ICNLSP 2024)",
+    year = "2024",
+    pages = "149--156",
+    url = "https://aclanthology.org/2024.icnlsp-1.17"
 }
 ```
 
+Or using the following written reference:
+
+```
+Zaw Htet Aung, Thanachot Thavornmongkol, Atirut Boribalburephan, Vittavas Tangsriworakan, Knot Pipatsrisawat, and Titipat Achakulvisut. 2024. Thonburian Whisper: Robust Fine-tuned and Distilled Whisper for Thai. In Proceedings of the 7th International Conference on Natural Language and Speech Processing (ICNLSP 2024), pages 149–156, Trento. Association for Computational Linguistics.
+```
