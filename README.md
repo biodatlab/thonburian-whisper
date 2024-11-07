@@ -60,6 +60,7 @@ normalizing special tokens (▁ to _ and — to -) and simple text-postprocessin
 | Thonburian Whisper (large-v3)| 6.59      | [Link](https://huggingface.co/biodatlab/whisper-th-large-v3-combined) |
 | Distilled Thonburian Whisper (small) | 11.2 | [Link](https://huggingface.co/biodatlab/distill-whisper-th-small) |
 | Distilled Thonburian Whisper (medium) | 7.6 | [Link](https://huggingface.co/biodatlab/distill-whisper-th-medium) |
+| Distilled Thonburian Whisper (large) | 6.82 | [Link](https://huggingface.co/biodatlab/distill-whisper-th-large-v3) |
 | Thonburian Whisper (medium-timestamps) | 15.57 | [Link](https://huggingface.co/biodatlab/whisper-th-medium-timestamps) |
 
 
@@ -78,6 +79,7 @@ on NVIDIA A100 with fp32 precision, batch size of 1. The medium model presents a
 | Thonburian Whisper (large)           | 6025.84      | 1.89                | 1540M      | [Link](https://huggingface.co/biodatlab/whisper-th-large-combined) |
 | Distilled Thonburian Whisper (small) | 650.27       | 4.42                 | 166M       | [Link](https://huggingface.co/biodatlab/distill-whisper-th-small) |
 | Distilled Thonburian Whisper (medium)| 1642.15       | 4.36                | 428M       | [Link](https://huggingface.co/biodatlab/distill-whisper-th-medium) |
+| Distilled Thonburian Whisper (large) | 3120.05 | 5.5 | 809M | [Link](https://huggingface.co/biodatlab/distill-whisper-th-large-v3) |
 
 
 ## Model Types and Use Cases
