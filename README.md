@@ -156,10 +156,12 @@ We found that this is more robust and produce less insertion error rate (IER) co
 
 - [Biomedical and Data Lab, Mahidol University](https://biodatlab.github.io/)
 - [WordSense](https://www.facebook.com/WordsenseAI) by [Looloo technology](https://loolootech.com/)
+- [Dusit Office Service Company](https://www.kexcellence.com)
 
 <p align="center">
   <img width="50px" src="assets/wordsense-looloo.png" />
   <img width="150px" src="assets/looloo-logo.png" />
+  <img width="60px" src="assets/dusit-logo.png" />
 </p>
 
 ## Citation
