@@ -5,6 +5,7 @@
 <p align="center">
   <img width="30px" src="assets/wordsense-looloo.png" />
   <img width="100px" src="assets/looloo-logo.png" />
+  <img width="35px" src="assets/dusit-logo.png" />
 </p>
 
 
