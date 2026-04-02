@@ -58,7 +58,7 @@ normalizing special tokens (▁ to _ and — to -) and simple text-postprocessin
 | Thonburian Whisper (small)   | 11.0     | [Link](https://huggingface.co/biodatlab/whisper-th-small-combined) |
 | Thonburian Whisper (medium)  | 7.42      | [Link](https://huggingface.co/biodatlab/whisper-th-medium-combined) |
 | Thonburian Whisper (large-v2)| 7.69      | [Link](https://huggingface.co/biodatlab/whisper-th-large-combined) |
-| Thonburian Whisper (large-v3)| 6.59      | [Link](https://huggingface.co/biodatlab/whisper-th-large-v3-combined) |
+| Thonburian Whisper (large-v3)| **6.59**  | [Link](https://huggingface.co/biodatlab/whisper-th-large-v3-combined) |
 | Distilled Thonburian Whisper (small) | 11.2 | [Link](https://huggingface.co/biodatlab/distill-whisper-th-small) |
 | Distilled Thonburian Whisper (medium) | 7.6 | [Link](https://huggingface.co/biodatlab/distill-whisper-th-medium) |
 | Distilled Thonburian Whisper (large) | 6.82 | [Link](https://huggingface.co/biodatlab/distill-whisper-th-large-v3) |
