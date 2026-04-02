@@ -3,6 +3,7 @@
 </p>
 
 <p align="center">
+  <img width="70px" src="assets/bdl.png" />
   <img width="30px" src="assets/wordsense-looloo.png" />
   <img width="25px" src="assets/mahamor-looloo.png" />
   <img width="100px" src="assets/looloo-logo.png" />
@@ -160,6 +161,7 @@ We found that this is more robust and produce less insertion error rate (IER) co
 - [Mahamor](https://looloohealth.com/) by [Looloo technology](https://loolootech.com/)
 
 <p align="center">
+  <img width="110px" src="assets/bdl.png" />
   <img width="50px" src="assets/wordsense-looloo.png" />
   <img width="45px" src="assets/mahamor-looloo.png" />
   <img width="150px" src="assets/looloo-logo.png" />
